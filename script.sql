@@ -17,8 +17,8 @@
 /*DROP TABLE IF EXISTS "empleadores";
 	CREATE TABLE empleadores (
 	nivel text,
-    anio int,
-    gestion text,
+   	anio int,
+   	gestion text,
 	unidades_educativas int,
     PRIMARY KEY (nivel, anio, gestion)
 );*/
