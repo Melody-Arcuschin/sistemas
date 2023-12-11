@@ -31,7 +31,7 @@ SELECT * FROM empleadores;
 DROP TABLE IF EXISTS "niveles";
 	CREATE TABLE niveles (
 	nivel text,
-    desde_edad text,
+  	desde_edad text,
 	hasta_edad text,
     PRIMARY KEY (nivel)
 );*/
@@ -44,7 +44,7 @@ SELECT * FROM niveles;
 DROP TABLE IF EXISTS "horas_catedra";
 CREATE TABLE horas_catedra (
 	nivel text,
-    anio int,
+    	anio int,
 	gestion text,
 	contratacion text,
 	horas numeric,
