@@ -106,12 +106,12 @@ SELECT
     	e.gestion,
 	e.unidades_educativas AS "cantidad de unidades educativas",
    	SUM(hc.horas) / e.unidades_educativas AS "promedio de horas cátedra por unidad educativa",
-	SUM(CASE WHEN hc.contratacion = 'Fuera de planta' THEN hc.horas ELSE 0 END) / e.unidades_educativas AS "promedio de horas cátedra fuera de planta por unidad educativa",
+	SUM(CASE WHEN hc.contratacion = 'Fuera de planta' THEN hc.horas ELSE 0 END) / e.unidades_educativas AS "promedio de horas cátedra fuera de planta por unidad educativa"
 FROM empleadores e
 INNER JOIN horas_catedra hc 
 ON e.nivel = hc.nivel AND e.anio = hc.anio AND e.gestion = hc.gestion
 GROUP BY e.anio, e.nivel, e.gestion
-ORDER BY "relación entre horas fuera de planta y horas en total(%)" DESC;
+ORDER BY "promedio de horas cátedra fuera de planta por unidad educativa" DESC;
 
 
 
