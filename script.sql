@@ -100,15 +100,14 @@ LIMIT 1;
 
 --------------------------------------------------------------------------------------
 --Cantidad de horas cátedra (total y fuera de planta funcional) promedio por unidad educativa, diferenciando por año, nivel y tipo de gestión.
-SELECT
-    e.nivel,
+SELECT 
+	e.nivel,
 	e.anio,
-    e.gestion,
+    	e.gestion,
 	e.unidades_educativas AS "cantidad de unidades educativas",
-    SUM(hc.horas) / e.unidades_educativas AS "promedio de horas cátedra por unidad educativa",
+   	SUM(hc.horas) / e.unidades_educativas AS "promedio de horas cátedra por unidad educativa",
 	SUM(CASE WHEN hc.contratacion = 'Fuera de planta' THEN hc.horas ELSE 0 END) / e.unidades_educativas AS "promedio de horas cátedra fuera de planta por unidad educativa",
-	(SUM(CASE WHEN hc.contratacion = 'Fuera de planta' THEN hc.horas ELSE 0 END) / e.unidades_educativas)/( SUM(hc.horas) / e.unidades_educativas)*100 AS "relación entre horas fuera de planta y horas en total(%)"
-	FROM empleadores e
+FROM empleadores e
 INNER JOIN horas_catedra hc 
 ON e.nivel = hc.nivel AND e.anio = hc.anio AND e.gestion = hc.gestion
 GROUP BY e.anio, e.nivel, e.gestion
