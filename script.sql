@@ -13,8 +13,8 @@
     CONNECTION LIMIT = -1
     IS_TEMPLATE = False;*/
 	
---creo la primer tabla
-/*DROP TABLE IF EXISTS "empleadores";
+/* creo la primer tabla
+DROP TABLE IF EXISTS "empleadores";
 	CREATE TABLE empleadores (
 	nivel text,
    	anio int,
