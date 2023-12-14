@@ -63,14 +63,14 @@ GROUP BY anio
 ORDER BY anio;
 
 --Porcentaje de horas cátedra fuera de la planta funcional sobre el total de horas cátedra, agrupando por nivel.
---Se aprecia mayor un mayor porcentaje de horas fuera de la planta funcional en escuelas de nivel inicial y primario que en escuelas de nivel secundario.
+--Se aprecia mayor un mayor porcentaje de horas fuera de planta funcional en el nivel inicial y primario que en el nivel secundario.
 SELECT nivel, (SUM(CASE WHEN contratacion = 'Fuera de planta' THEN horas ELSE 0 END) / NULLIF(SUM(horas), 0)) * 100.0 AS "porcentaje de horas fuera de planta"
 FROM horas_catedra
 GROUP BY nivel
 ORDER BY nivel;
 
 --Porcentaje de horas cátedra fuera de la planta funcional sobre el total de horas cátedra, agrupando por sector de gestión.
---Se aprecia mayor un mayor porcentaje de horas fuera de la planta funcional en escuelas de gestión privada que en escuelas de gestión estatal.
+--Se aprecia mayor un mayor porcentaje de horas fuera de planta funcional en la gestión privada que en la gestión estatal.
 SELECT gestion, (SUM(CASE WHEN contratacion = 'Fuera de planta' THEN horas ELSE 0 END) / NULLIF(SUM(horas), 0)) * 100.0 AS "porcentaje de horas fuera de planta"
 FROM horas_catedra
 GROUP BY gestion
